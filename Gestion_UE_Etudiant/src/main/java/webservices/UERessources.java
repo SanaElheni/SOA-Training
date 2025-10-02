@@ -43,27 +43,22 @@ public class UERessources {
                 .build();
     }
 
+    @DELETE
     @Path("/delete/{code}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-
-    public Response delete(@PathParam("code")int code){
-        return Response
-                .status(200)
-                .entity(this.helper.deleteUniteEnseignement(code))
-                .build();
+    public Response deleteUE(@PathParam("code") int code) {
+        boolean deleted = helper.deleteUniteEnseignement(code); // ✅ int code
+        if (deleted) return Response.ok("Deleted successfully").build();
+        else return Response.status(Response.Status.NOT_FOUND).entity("UE not found").build();
     }
 
-    @Path("/update/{code}")
     @PUT
+    @Path("/update/{code}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-
-    public Response update(@PathParam("code")int code, UniteEnseignement ue){
-        return Response
-                .status(200)
-                .entity(this.helper.updateUniteEnseignement(code,ue))
-                .build();
+    public Response updateUE(@PathParam("code") int code, UniteEnseignement updatedUE) {
+        boolean updated = helper.updateUniteEnseignement(code, updatedUE); // ✅ int code
+        if (updated) return Response.ok(updatedUE).build();
+        else return Response.status(Response.Status.NOT_FOUND).entity("UE not found").build();
     }
 
 
