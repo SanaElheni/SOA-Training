@@ -23,7 +23,14 @@ type MutationResolver {
         credits: Int!
         semestre: Int!
     ): Boolean
-
+    deleteUniteEnseignement(code: Int!): Boolean
+    updateUniteEnseignement(
+        code: Int!
+        domaine: String
+        responsable: String
+        credits: Int
+        semestre: Int
+    ) : Boolean
 }
 schema {
     query: QueryResolver

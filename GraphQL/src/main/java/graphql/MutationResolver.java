@@ -55,4 +55,16 @@ public class MutationResolver implements GraphQLRootResolver {
         return helper.addUniteEnseignement(ue);
     }
 
+
+    public boolean deleteUniteEnseignement(int code) {
+        return helper.deleteUniteEnseignement(code);
+    }
+    public boolean updateUniteEnseignement(int code, String domaine, String responsable, int credits, int semestre) {
+        UniteEnseignement updatedUE = new UniteEnseignement(code, domaine, responsable, credits, semestre);
+        return helper.updateUniteEnseignement(code, updatedUE);
+    }
+    public boolean resetUEList() {
+        helper.setUnitesEnseignement(new java.util.ArrayList<>());
+        return true;
+    }
 }
