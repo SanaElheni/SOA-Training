@@ -29,21 +29,21 @@ public class MutationResolver implements GraphQLRootResolver {
 
     /**
      * GraphQL Mutation: addUniteEnseignement
-     *
+     * <p>
      * This method allows clients to add a new "Unité d’Enseignement" to the system.
-     *
+     * <p>
      * When a GraphQL mutation like the following is executed:
-     *
+     * <p>
      * mutation {
-     *     addUniteEnseignement(
-     *         code: 101,
-     *         domaine: "Informatique",
-     *         responsable: "Dr. Smith",
-     *         credits: 4,
-     *         semestre: 2
-     *     )
+     * addUniteEnseignement(
+     * code: 101,
+     * domaine: "Informatique",
+     * responsable: "Dr. Smith",
+     * credits: 4,
+     * semestre: 2
+     * )
      * }
-     *
+     * <p>
      * GraphQL calls this Java method to create and save a new teaching unit.
      */
     public boolean addUniteEnseignement(int code, String domaine, String responsable, int credits, int semestre) {
@@ -54,4 +54,5 @@ public class MutationResolver implements GraphQLRootResolver {
         // The helper handles the actual persistence or logic of adding the entity
         return helper.addUniteEnseignement(ue);
     }
+
 }

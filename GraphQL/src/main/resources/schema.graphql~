@@ -10,8 +10,6 @@ type QueryResolver {
     getUEByCode(code: Int!): UniteEnseignementµ
     getUEByDomaine(domaine: String!): [UniteEnseignement]
     getUEBySemestre(semestre: Int!): [UniteEnseignement]
-    getListeUE: [UniteEnseignement]
-
 }
 
 

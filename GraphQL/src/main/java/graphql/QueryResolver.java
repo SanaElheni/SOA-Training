@@ -10,7 +10,7 @@ import com.coxautodev.graphql.tools.GraphQLRootResolver;
 import entities.UniteEnseignement;
 
 import java.util.List;
-
+//implenter une interface developpant les resolvers
 /**
  * This class acts as the root resolver for GraphQL queries.
  * It tells GraphQL how to fetch data when a query is executed.
@@ -53,4 +53,24 @@ public class QueryResolver implements GraphQLRootResolver {
         // which fetches all UE entities (e.g., from a database or a static list)
         return helper.getListeUE();
     }
+
+
+
+    public UniteEnseignement getUEByCode(int code) {
+        return helper.getUEByCode(code);
+    }
+
+    public List<UniteEnseignement> getUEByDomaine(String domaine) {
+        return helper.getUEByDomaine(domaine);
+    }
+
+    public List<UniteEnseignement> getUEBySemestre (int semestre) {
+        return helper.getUEBySemestre(semestre);
+    }
+    public List<UniteEnseignement> getListeUE() {
+        return helper.getListeUE();
+    }
+
+
+
 }
