@@ -1,6 +1,7 @@
 package graphql;
 
 // Import the business logic class responsible for managing "UniteEnseignement" data
+import business.ModuleBusiness;
 import business.UniteEnseignementBusiness;
 
 // Import the GraphQL library class used to define the root of GraphQL mutations
@@ -19,6 +20,7 @@ public class MutationResolver implements GraphQLRootResolver {
     // Attribute used to access the business logic (service layer)
     public UniteEnseignementBusiness helper;
 
+
     /**
      * Constructor of the resolver.
      * It initializes the business helper that manages the teaching units.
@@ -26,7 +28,6 @@ public class MutationResolver implements GraphQLRootResolver {
     public MutationResolver() {
         helper = new UniteEnseignementBusiness();
     }
-
     /**
      * GraphQL Mutation: addUniteEnseignement
      * <p>
@@ -63,8 +64,5 @@ public class MutationResolver implements GraphQLRootResolver {
         UniteEnseignement updatedUE = new UniteEnseignement(code, domaine, responsable, credits, semestre);
         return helper.updateUniteEnseignement(code, updatedUE);
     }
-    public boolean resetUEList() {
-        helper.setUnitesEnseignement(new java.util.ArrayList<>());
-        return true;
-    }
+
 }

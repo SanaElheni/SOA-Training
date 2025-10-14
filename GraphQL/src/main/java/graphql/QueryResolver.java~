@@ -10,11 +10,11 @@ import java.util.List;
 
 public class QueryResolver implements GraphQLRootResolver {
 
-    private UniteEnseignementBusiness helper;
+    private UniteEnseignementBusiness ueHelper;
     private ModuleBusiness moduleHelper;
 
     public QueryResolver() {
-        helper = new UniteEnseignementBusiness();
+        ueHelper = new UniteEnseignementBusiness();
         moduleHelper = new ModuleBusiness();
     }
 
@@ -22,19 +22,19 @@ public class QueryResolver implements GraphQLRootResolver {
     // Unités d'enseignement
 
     public List<UniteEnseignement> allUEs() {
-        return helper.getListeUE();
+        return ueHelper.getListeUE();
     }
 
     public UniteEnseignement getUEByCode(int code) {
-        return helper.getUEByCode(code);
+        return ueHelper.getUEByCode(code);
     }
 
     public List<UniteEnseignement> getUEByDomaine(String domaine) {
-        return helper.getUEByDomaine(domaine);
+        return ueHelper.getUEByDomaine(domaine);
     }
 
     public List<UniteEnseignement> getUEBySemestre(int semestre) {
-        return helper.getUEBySemestre(semestre);
+        return ueHelper.getUEBySemestre(semestre);
     }
 
     // Modules
